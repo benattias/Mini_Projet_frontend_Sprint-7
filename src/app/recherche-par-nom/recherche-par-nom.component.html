@@ -1,0 +1,28 @@
+<div class="container">
+    <form class="form-inline">
+        <div class="form-group mx-sm-3 mb-2 mt-2 ">
+            <label>Nom Joueur en tapant</label>
+            <input #nom [(ngModel)]="searchTerm" name="searchTerm" class="form-control" >
+            </div>
+
+        </form>
+        
+        
+    <div class="card shadow mb-4">
+    <div class="card-body">
+    <table class="table table-striped">
+    <tr> <th>Id</th><th>Nom</th> <th>Prenom</th> <th>Date Naissance</th> <th>Equipes</th></tr>
+    <tbody *ngFor="let joueur of joueurs  | searchFilter: searchTerm  ">
+    <tr >
+    <td>{{joueur.idJoueur}}</td>
+    <td>{{joueur.nomJoueur}}</td>
+    <td>{{joueur.prenomJoueur}}</td>
+    <td>{{joueur.dateNaissance| date:'dd/MM/yyyy'}}</td>
+    <td>{{joueur.equipe.nomEq}}</td>
+    
+    </tr>
+    </tbody>
+    </table>
+    </div>
+    </div>
+    </div>

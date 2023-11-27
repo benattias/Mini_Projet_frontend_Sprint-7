@@ -1,0 +1,29 @@
+<div class="container">
+    <div class="col-sm-4 col-md-4 col-lg-4 mb-4">
+        <label>Equipes </label>
+        <select class="form-control form-control-lg" id="idCat" name="idCat"
+        [(ngModel)]="IdEquipe" (change)="onChange()">
+        <option *ngFor="let cat of equipes" value="{{cat.idEq}}">
+        {{cat.nomEq}}
+         </option>
+        </select>
+        </div>
+        
+    <div class="card shadow mb-4">
+    <div class="card-body">
+    <table class="table table-striped">
+    <tr> <th>Id</th><th>Nom</th> <th>Prenom</th> <th>Date Naissance</th> <th>Equipes</th></tr>
+    <tbody *ngFor="let joueur of joueurs">
+    <tr >
+    <td>{{joueur.idJoueur}}</td>
+    <td>{{joueur.nomJoueur}}</td>
+    <td>{{joueur.prenomJoueur}}</td>
+    <td>{{joueur.dateNaissance| date:'dd/MM/yyyy'}}</td>
+    <td>{{joueur.equipe.nomEq}}</td>
+    
+    </tr>
+    </tbody>
+    </table>
+    </div>
+    </div>
+    </div>

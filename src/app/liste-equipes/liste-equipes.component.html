@@ -1,0 +1,26 @@
+<div class="container">
+  
+        <div class="col-sm-4 col-md-4 col-lg-4 mb-4">
+            <app-update-equipe (equipeUpdated)= "equipeUpdated($event)"  [equipe]="updatedEq"  [ajout]="ajout">
+
+            </app-update-equipe>
+        
+        </div>
+        <div class="card shadow mb-4">
+            <div class="card-body">
+    <table class="table table-striped">
+    <thead>
+    <tr> <th>Id</th><th>Nom Equipe</th> </tr>
+    </thead>
+    <tbody *ngFor="let eq of equipes">
+    <tr>
+    <td>{{eq.idEq}}</td>
+    <td>{{eq.nomEq}}</td>
+    <td><a class="btn btn-success" (click)="updateEq(eq)">Editer</a></td>
+
+    </tr>
+    </tbody>
+    </table>
+    </div>
+    </div>
+    </div>

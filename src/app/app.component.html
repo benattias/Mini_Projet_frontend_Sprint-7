@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html >
+<head>
+<meta charset="utf-8">
+<title>Gestion des Joueurs</title>
+</head>
+<body>
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+<!-- Brand -->
+<a class="navbar-brand" href="#">Académie football</a>
+<!-- Links -->
+<ul class="navbar-nav">
+ 
+<!-- Dropdown -->
+<li class="nav-item dropdown">
+<a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+Plus
+</a>
+<div class="dropdown-menu">
+  <a  *ngIf="authService.isAdmin()" class="dropdown-item" routerLink="/add-joueur">Ajouter Joueur</a>
+  <a class="dropdown-item" href="#">Lister</a>
+  <a class="dropdown-item" routerLink="/rechercheParEquipe" >Recherche Par Equipe</a>
+  <a class="dropdown-item" routerLink="/rechercheParNom" >Recherche Par Nom</a>
+  <a class="dropdown-item" routerLink="/listeEquipes" >Gestion des equipes</a>
+  <a class="dropdown-item" *ngIf="authService.isAdmin()"  routerLink="/liste_user" >Liste_Utilisateur</a>
+<a class="dropdown-item" *ngIf="authService.isAdmin()"  routerLink="/liste-role" >Liste_Role</a>
+<a class="dropdown-item" *ngIf="authService.isAdmin()"  routerLink="/add-user" >ajouter un Utilisateur</a>
+<a class="dropdown-item" *ngIf="authService.isAdmin()"  routerLink="/add-role" >ajouter un Role</a>
+
+  </div>
+</li>
+</ul>
+<ul class="navbar-nav ml-auto" >
+<li> <a class="nav-link">{{authService.loggedUser}}</a></li>
+<li class="nav-item dropdown">
+<a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+Connexion
+</a>
+<div class="dropdown-menu">
+  <a *ngIf="!authService.isloggedIn"  class="dropdown-item" routerLink = "login">login</a>
+  <a *ngIf="authService.isloggedIn" class="dropdown-item" (click) = "onLogout()">logout</a>
+</div>
+</li>
+</ul>
+</nav>
+</body>
+</html>
+
+<router-outlet></router-outlet>

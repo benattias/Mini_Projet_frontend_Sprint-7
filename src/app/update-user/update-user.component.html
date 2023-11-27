@@ -1,0 +1,36 @@
+<div class="container">
+    <div>
+    <h2>Modifier un utilisateur :</h2>
+    </div>
+    <form >
+    <div class="col-sm-2 col-md-2 col-lg-2" >
+    <label >ID </label>
+    <input readonly type="text" [(ngModel)]="currentuser.user_id"
+    name="user_id" class="form-control">
+    </div>
+    <div class="col-sm-4 col-md-4 col-lg-4" >
+    <label >Nom </label>
+    <input type="text"[(ngModel)]= "currentuser.username"
+    name="username" class="form-control">
+    </div>
+    <div class="col-sm-2 col-md-2 col-lg-2">
+    <label >Mot de passe</label>
+    <input type="password" [(ngModel)]= "currentuser.password"
+    name="password" class="form-control">
+    </div>
+    <div class="col-sm-2 col-md-2 col-lg-2">
+        <label class="col-sm-2 col-form-label">Rôles:</label>
+        <div class="col-sm-10">
+          <div class="form-check" *ngFor="let role of roles">
+            <input class="form-check-input" type="checkbox" [value]="role.role_id" name="roles" [checked]="role.checked" (change)="role.checked = !role.checked">
+            <label class="form-check-label">{{ role.role }}</label>
+          </div>
+        </div>
+      </div>
+    
+         
+        <div class="mt-2">
+        <button type="submit" (click)="updateuser()" class="btn btn-success">Modifer</button>
+        </div>
+        </form>
+        </div>    

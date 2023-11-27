@@ -1,0 +1,25 @@
+<div class="container">
+    <div class="card shadow mb-4">
+    <div class="card-body">
+    <table class="table table-striped">
+    <tr> <th>Id</th><th>Nom</th> <th>Prenom</th> <th>Date Naissance</th> <th>Equipes</th><th>Image</th></tr>
+    
+    <tbody *ngFor="let joueur of joueurs">
+    <tr >
+    <td>{{joueur.idJoueur}}</td>
+    <td>{{joueur.nomJoueur}}</td>
+    <td>{{joueur.prenomJoueur}}</td>
+    <td>{{joueur.dateNaissance| date:'dd/MM/yyyy'}}</td>
+    <td>{{joueur.equipe.nomEq}}</td>
+    <td><img class="card-img-top img-responsive"
+        src="{{apiurl+'/image/loadfromFS/'+joueur.idJoueur}}"
+        style = "height :50px;width:100px">
+     </td>
+    <td><a *ngIf="authService.isAdmin()" class="btn btn-danger" (click)="supprimerJoueur(joueur)">Supprimer</a></td>
+    <td><a  *ngIf="authService.isAdmin()" class="btn btn-success" [routerLink]="['/updateJoueur',joueur.idJoueur]">Modifier</a></td>
+    </tr>
+    </tbody>
+    </table>
+    </div>
+    </div>
+    </div>
